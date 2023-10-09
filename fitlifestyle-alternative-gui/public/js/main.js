@@ -6,8 +6,6 @@
   Version: 1.0
   Created: Colorlib
 ---------------------------------------------------------  */
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 'use strict';
 
 (function ($) {
@@ -173,26 +171,3 @@ import axios from 'axios';
     });
 
 })(jQuery);
-
-
-function App() {
-  const [data, setData] = useState({});
-
-  useEffect(() => {
-    axios.get('/api/data')
-      .then(response => {
-        setData(response.data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }, []);
-
-  return (
-    <div className="App">
-      <h1>{data.message}</h1>
-    </div>
-  );
-}
-
-export default App;
